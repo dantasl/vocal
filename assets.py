@@ -32,3 +32,4 @@ def listen_sentence_from_mic(recognizer, microphone):
         response["error"] = "Could not understand the instruction."
 
     return response
+ 

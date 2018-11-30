@@ -1,3 +1,4 @@
+from time import sleep
 import speech_recognition as sr
 import assets
 
@@ -16,6 +17,7 @@ if __name__ == "__main__":
     options = (
         "\nHouse Automaton actually supports those sentences:\n"
         "{sentences}\n"
+        "\n\nSay something: \n"
     ).format(sentences=', \n'.join(SENTENCES))
     print(options)
 
@@ -24,7 +26,9 @@ if __name__ == "__main__":
 
     # Checking for errors
     while sentence["error"]:
+        sleep(3)
         print("ERROR: {}".format(sentence["error"]))
+        print("Say something: ")
         sentence = assets.listen_sentence_from_mic(recognizer, microphone)
 
     # Print sentence

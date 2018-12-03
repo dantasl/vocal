@@ -1,4 +1,5 @@
 import speech_recognition as sr
+from time import sleep
 
 def listen_sentence_from_mic(recognizer, microphone):
     # Check if instances are from correct class
@@ -32,4 +33,23 @@ def listen_sentence_from_mic(recognizer, microphone):
         response["error"] = "Could not understand the instruction."
 
     return response
- 
+
+# List of sentences accepted
+SENTENCES = [
+    "kitchen on", "kitchen off", "living room on", "living room off",
+    "bathroom on", "bathroom off", "all on", "all off"
+]
+
+# Create Recognizer and Mic instances
+recognizer = sr.Recognizer()
+microphone = sr.Microphone()
+
+
+def get_options():
+    # Format the available options
+    options = (
+        "\nHouse Automaton actually supports those sentences:\n"
+        "{sentences}\n"
+        "\n\nSay something: \n"
+    ).format(sentences=', \n'.join(SENTENCES))
+    return options

@@ -1,7 +1,6 @@
 import threading
 import voice
 import client_socket as csocket
-import speech_recognition as sr
 from time import sleep
 
 # Showing first instructions

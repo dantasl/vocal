@@ -19,4 +19,4 @@ while sentence["error"]:
 # Print sentence
 print("Your command was: {}".format(sentence["transcription"]))
 
-csocket.send_command(sentence["transcription"])
+csocket.send_command(sentence["transcription"].encode())

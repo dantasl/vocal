@@ -1,3 +1,0 @@
-Não vai ser necessário encodificar a instrução.
-A frase já está simples o suficiente.
-Do lado da BBB é criado um dict com a key sendo a frase e o value sendo o led.

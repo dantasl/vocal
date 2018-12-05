@@ -3,8 +3,8 @@ import subprocess
 import board_assets as assets
 from threading import *
 
-HOST = "10.99.9.26"
-PORT = 65432
+HOST = "192.168.0.24"
+PORT = 65430
 
 serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serverSocket.bind((HOST, PORT))
@@ -25,10 +25,7 @@ class Client(Thread):
             if not data:
                 break
             print("Instruction: {}".format(data))
-            if (int(data) % 2 == 0):
-                assets.turn_all_on()
-            else:
-                assets.turn_all_off()    
+            assets.decode_command(data)    
             self.sock.sendall(b'Instruction received.')
 
 

@@ -4,7 +4,7 @@ import board_assets as assets
 from threading import *
 
 HOST = "192.168.0.24"
-PORT = 65430
+PORT = 65431
 
 serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serverSocket.bind((HOST, PORT))
@@ -25,8 +25,10 @@ class Client(Thread):
             if not data:
                 break
             print("Instruction: {}".format(data))
-            assets.decode_command(data)    
-            self.sock.sendall(b'Instruction received.')
+            if assets.decode_command(data): 
+                self.sock.sendall(b'COMMAND PERFORMED.')
+            else:
+                self.sock.sendall(b'ERROR WHILE PERFORMING COMMAND.')   
 
 
 while True:

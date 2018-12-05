@@ -28,6 +28,8 @@ def decode_command(command):
 		turn_all_off()
 	else:
 		print("Could not decode command.")
+		return False
+	return True	
 
 
 def init_leds():

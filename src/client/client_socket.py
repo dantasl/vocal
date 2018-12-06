@@ -3,11 +3,12 @@ import logging
 import datetime
 from time import sleep
 
+
 class ClientSocket(object):
     def __init__(self, host, port):
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock.connect((host, port))
-        logging.basicConfig(filename='statusHouse.log',level=logging.DEBUG)
+        logging.basicConfig(filename='statusHouse.log', level=logging.DEBUG)
 
     def send_command(self, command):
         self.sock.sendall(command)

@@ -1,5 +1,5 @@
 import speech_recognition as sr
-from time import sleep
+
 
 def listen_sentence_from_mic(recognizer, microphone):
     # Check if instances are from correct class
@@ -33,6 +33,7 @@ def listen_sentence_from_mic(recognizer, microphone):
         response["error"] = "Could not understand the instruction."
 
     return response
+
 
 # List of sentences accepted
 SENTENCES = [

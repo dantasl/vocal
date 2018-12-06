@@ -63,10 +63,10 @@ def turn_off(room):
 
 
 def turn_all_on():
-    for room in house:
-        turn_on(room)
+	for room in house:
+		turn_on(room)
 
 
 def turn_all_off():
-    for room in house:
-        turn_off(room)
+	for room in house:
+		turn_off(room)

@@ -6,6 +6,7 @@ from time import sleep
 HOST = "192.168.0.24"
 PORT = 6001
 
+
 class ThreadedServer(object):
     def __init__(self, host, port):
         self.host = host
@@ -49,6 +50,7 @@ class ThreadedServer(object):
             except:
                 client.close()
                 return False
+
 
 if __name__ == "__main__":
     assets.init_leds()

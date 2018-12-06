@@ -1,13 +1,9 @@
 import threading
 import voice
 from client_socket import ClientSocket
-from time import sleep
 
 
-HOST = "192.168.0.24"
-PORT = 6002
-
-def automaton(clientSocket):
+def automaton(clientsocket):
     # Showing first instructions
     print(voice.get_options())
 
@@ -23,21 +19,25 @@ def automaton(clientSocket):
     # Print sentence
     print("Your command was: {}".format(sentence["transcription"]))
 
-    clientSocket.send_command(sentence["transcription"].encode())
+    clientsocket.send_command(sentence["transcription"].encode())
 
 
-def voice_part(clientSocket):
+def voice_part(clientsocket):
     while True:
         try:
             text = input("\nHit ENTER for a new command.\nCTRL + C to quit.\n")
             if text == "":
-                automaton(clientSocket)
+                automaton(clientsocket)
         except (KeyboardInterrupt, SystemExit):
             print("\n\nYou've finished this program. Thanks for using it. ;)")
             break
 
-clientSocket = ClientSocket(HOST, PORT)
-automaton_thread = threading.Thread(target=voice_part, args=(clientSocket,))
-checking_thread = threading.Thread(target=clientSocket.check_status)
-automaton_thread.start()
-checking_thread.start()
+
+if __name__ == "__main__":
+    host = "192.168.0.24"
+    port = 6002
+    client_socket = ClientSocket(host, port)
+    automaton_thread = threading.Thread(target=voice_part, args=(client_socket,))
+    checking_thread = threading.Thread(target=client_socket.check_status)
+    automaton_thread.start()
+    checking_thread.start()

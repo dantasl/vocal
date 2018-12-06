@@ -83,6 +83,7 @@ Periodically (in this example, every 1 minute) the server will send to the clien
 Here's the output of this log file after some minutes of execution:
 
 <p align="center">
-  <img src="https://github.com/vertumno/vocal/blob/master/assets/log%20file.png?raw=true" alt="Log file"
-       width="500" height="400">
+  <img src="https://github.com/vertumno/vocal/blob/master/assets/log%20file.png?raw=true" alt="Log file">
 </p>
+
+## Authors

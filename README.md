@@ -12,6 +12,6 @@ We've implemented like this:
        width="654" height="450">
 </p>
 
-Also, you'll need to install the [Adafruit Beaglebone I/O Python API](https://github.com/adafruit/adafruit-beaglebone-io-python) module.
+Also, you'll need to install the [Adafruit Beaglebone I/O Python API](https://github.com/adafruit/adafruit-beaglebone-io-python) module on your BeagleBone.
 
 ## Setting up the server

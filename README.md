@@ -51,3 +51,29 @@ Its okay if you see those messages that begin with "ALSA" on Ubuntu. If you want
 
 ## Running Vocal
 
+From the screen above showed on "Setting up client" section, Vocal is already running. Now you can hit ENTER and the program will ask for your voice input.
+
+<p align="center">
+  <img src="https://github.com/vertumno/vocal/blob/master/assets/client%2002.png?raw=true" alt="Client running 2">
+</p>
+
+For this example I said "all on". Vocal receives this input, treats using the SpeechRecognition and sends the instruction via socket to the server. After the server performs his actions, it sends back a message informing wheter the command worked or not. 
+
+Here's how it looks like from the server perspective after the client sends the instruction:
+
+<p align="center">
+  <img src="https://github.com/vertumno/vocal/blob/master/assets/server%2001.png?raw=true" alt="Server side">
+</p>
+
+The server accepts the connection and sends the "house" status to the client (more on this later). After he decodes the instruction received, he performs the necessary actions.
+
+This is how it looked like on the BeagleBone after the server executed the voice command:
+
+<p align="center">
+  <img src="https://github.com/vertumno/vocal/blob/master/assets/board%20execution.jpeg?raw=true" alt="BeagleBone side"
+       width="500" height="400">
+</p>
+
+Since the command was "all on", all the rooms (LEDs) were turned on.
+
+## The log messages

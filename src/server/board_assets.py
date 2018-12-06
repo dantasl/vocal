@@ -8,6 +8,20 @@ house = {
 }
 
 
+def get_status(pin_number):
+	if GPIO.input(pin_number):
+		return "ON"
+	return "OFF"
+
+
+def compose_status():
+	return "KITCHEN {}, BATHROOM {}, LIVING ROOM {}".format(
+		get_status(house["KITCHEN"]),
+		get_status(house["BATHROOM"]),
+		get_status(house["LIVINGROOM"])
+	)
+
+
 def decode_command(command):
 	command = command.decode().lower()
 	if command == "kitchen on":

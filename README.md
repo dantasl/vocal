@@ -12,7 +12,9 @@ We've implemented like this:
        width="654" height="450">
 </p>
 
-Also, you'll need to install the [Adafruit Beaglebone I/O Python API](https://github.com/adafruit/adafruit-beaglebone-io-python) module on your BeagleBone.
+To proceed, you'll need to install the [Adafruit Beaglebone I/O Python API](https://github.com/adafruit/adafruit-beaglebone-io-python) module on your BeagleBone.
+
+Also, in the file [board_assets.py](https://github.com/vertumno/vocal/blob/master/src/server/board_assets.py), you'll find a dictionary named ```house```. It has as keys all the rooms and as values the GPIO pin number associated to that room. You can change this configuration to the one that suits more your needs, but remember to put LEDs, jumpers and resistors connecting everything properly.
 
 ## Setting up the server
 
@@ -27,4 +29,6 @@ After this, simply run: ```python vocal_server.py``` and you should see somethin
        width="500" height="400">
 </p>
 
-Now the server is running and available for socket connections. 
+The server configured the GPIO and is ready to receive socket connections and perform the voice commands.
+
+## Setting up the client

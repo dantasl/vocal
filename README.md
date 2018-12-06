@@ -77,3 +77,12 @@ This is how it looked like on the BeagleBone after the server executed the voice
 Since the command was "all on", all the rooms (LEDs) were turned on.
 
 ## The log messages
+
+Periodically (in this example, every 1 minute) the server will send to the client a message with the status of the "house" (if lights of all rooms are turned on or off). The client will receive this message and will store them in a log file.
+
+Here's the output of this log file after some minutes of execution:
+
+<p align="center">
+  <img src="https://github.com/vertumno/vocal/blob/master/assets/log%20file.png?raw=true" alt="Log file"
+       width="500" height="400">
+</p>

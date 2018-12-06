@@ -32,3 +32,22 @@ After this, simply run: ```python vocal_server.py``` and you should see somethin
 The server configured the GPIO and is ready to receive socket connections and perform the voice commands.
 
 ## Setting up the client
+
+The client will stay on your machine. To set it up, you'll need to install PyAudio and SpeechRecognition, as described at [requirements.txt](https://github.com/vertumno/vocal/blob/master/requirements.txt). You can do this simply by:
+
+* ```pip install -r requirements.txt```
+
+Before running, you'll have to provide host and port for the socket in [vocal_client.py](https://github.com/vertumno/vocal/blob/master/src/client/vocal_client.py), the same way you've done on ```vocal_server.py```.
+
+After this, and having successfully installed all the requirements, you can execute the code typing on your terminal: ```python vocal_client.py```.
+
+If everything goes well, you should see a screen similar to this:
+
+<p align="center">
+  <img src="https://github.com/vertumno/vocal/blob/master/assets/client%2001.png?raw=true" alt="Client running">
+</p>
+
+Its okay if you see those messages that begin with "ALSA" on Ubuntu. If you want ro remove them, check [this out](https://stackoverflow.com/questions/7088672/pyaudio-working-but-spits-out-error-messages-each-time).
+
+## Running Vocal
+

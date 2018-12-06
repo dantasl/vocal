@@ -86,4 +86,18 @@ Here's the output of this log file after some minutes of execution:
   <img src="https://github.com/vertumno/vocal/blob/master/assets/log%20file.png?raw=true" alt="Log file">
 </p>
 
+## Enjoy yourlsef!
+
+Feel free to test, fork and contribute to this project! If you have any doubts, contact us with:
+
+* <code>Lucas Gomes Dantas - dantaslucas@ufrn.edu.br</code>
+* <code>Lucas Aléssio Anunciado Silva - lucas.alessio@live.com</code>
+
 ## Authors
+
+|             ![Lucas Dantas][author1]           |         ![Lucas Aléssio][author2]           |
+|---------------------------------------------------|--------------------------------------------|
+|[Lucas Dantas](https://github.com/vertumno) | [Lucas Aléssio](https://github.com/lieet)|
+
+[author1]: https://avatars2.githubusercontent.com/u/17501172?s=180&v=4
+[author2]: https://avatars3.githubusercontent.com/u/12575871?s=180&v=4

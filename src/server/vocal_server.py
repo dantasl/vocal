@@ -70,7 +70,11 @@ class VocalServer(object):
                 return False    
 
     def listen_client(self, client):
-        """.
+        """Receives the data from the client.
+
+        Get the data from the client in chunks of 1024 bytes and calls the function
+        for decoding the instruction. After this, sends back to the user information
+        telling if the command was performed or not.
 
         Parameters
         ----------

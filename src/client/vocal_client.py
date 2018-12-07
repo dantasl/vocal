@@ -7,7 +7,7 @@ def voice_command(clientsocket):
     """Show available commands and send user choice to the server.
 
     This function will (until terminated by the user) show the available
-    set of commands provided by the aplication. It will then call another
+    set of commands provided by the application. It will then call another
     function to listen and treat the user audio input. After this, it will
     check the response for errors and listen again in case it find any of them.
     Then, this function will print the audio command translated to text and will

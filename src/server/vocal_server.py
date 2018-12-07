@@ -7,25 +7,61 @@ HOST = "192.168.0.24"
 PORT = 6001
 
 
-class ThreadedServer(object):
+class VocalServer(object):
+    """
+    This class represents the server of the Vocal application.
+
+    ...
+
+    Attributes
+    ----------
+    sock : socket
+        instance of the Python socket module
+
+    Methods
+    -------
+    listen()
+        Listen for clients requests and creates threads to handle their requests.
+    send_status()
+        Sends to the client every 1 minute the status of the house.
+    listen_client()
+        Receives the commands sent by the user and performs the requested action.
+    """
+
     def __init__(self, host, port):
-        self.host = host
-        self.port = port
+        """
+        Parameters
+        ----------
+        host : str
+            IP address to connect (e.g. "192.168.0.24")
+        port : int
+            Number of the port to establish connection (e.g. 6000)
+        """
+
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        self.sock.bind((self.host, self.port))
+        self.sock.bind((host, port))
 
     def listen(self):
-        self.sock.listen(5)
+        """Listen to the maximum of 3 clients and creates threads to handle their requests."""
+
+        self.sock.listen(3)
         while True:
             client, address = self.sock.accept()
-            # client.settimeout(60) uncomment to kill client after a while
-            threading.Thread(target = self.listenToClient, args = (client,address)).start()
-            threading.Thread(target = self.sendStatusToClient, args = (client, address)).start()
+            threading.Thread(target=self.listen_client, args=(client,)).start()
+            threading.Thread(target=self.send_status, args=(client,)).start()
 
-    def sendStatusToClient(self, client, address):
+    def send_status(self, client):
+        """Send status of the house to the client every 60 seconds.
+
+        Parameters
+        ----------
+        client : socket
+            Socket instance of a new client.
+        """
+
         while True:
-            sleep(60) # Put this any value
+            sleep(60)
             try:
                 print("Sending status: {}".format(assets.compose_status()))
                 client.send(assets.compose_status().encode())
@@ -33,7 +69,15 @@ class ThreadedServer(object):
                 client.close()
                 return False    
 
-    def listenToClient(self, client, address):
+    def listen_client(self, client):
+        """.
+
+        Parameters
+        ----------
+        client : socket
+            Socket instance of a new client.
+        """
+
         size = 1024
         while True:
             try:
@@ -54,4 +98,4 @@ class ThreadedServer(object):
 
 if __name__ == "__main__":
     assets.init_leds()
-    ThreadedServer(HOST, PORT).listen()
+    VocalServer(HOST, PORT).listen()
